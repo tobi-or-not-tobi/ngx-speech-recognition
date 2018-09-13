@@ -3,7 +3,6 @@
   "name": "@kamiazya/ngx-speech",
   "version": "1.0.0",
   "ngPackage": {
-    "src": "src",
     "lib": {
       "entryFile": "public_api.ts"
     }
