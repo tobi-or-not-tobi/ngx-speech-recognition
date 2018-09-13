@@ -16,7 +16,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@angular/common": "^6.1.7",
     "@angular/compiler": "^6.1.7",
     "@angular/core": "^6.1.7",
