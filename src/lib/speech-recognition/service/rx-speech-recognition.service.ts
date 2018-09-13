@@ -27,6 +27,7 @@ import { SpeechGrammarListType, SpeechRecognitionServiceEvent } from '../adapter
 
 import { SpeechRecognitionCommon } from './speech-recognition.common';
 
+// @dynamic
 @Injectable()
 export class RxSpeechRecognitionService extends SpeechRecognitionCommon {
   static resultList: UnaryFunction<Observable<SpeechRecognitionEvent>, Observable<SpeechRecognitionResultList>> = pipe(

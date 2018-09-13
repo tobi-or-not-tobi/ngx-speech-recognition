@@ -18,17 +18,14 @@ import {
   SpeechRecognitionNomatchHandler,
   SpeechRecognitionErrorHandler,
   SpeechRecognitionStartHandler,
-  SpeechRecognitionEndHandler,
+  SpeechRecognitionEndHandler
 } from './speech-recognition.token';
 
-import {
-  SpeechGrammarListType,
-} from '../adapter';
+import { SpeechGrammarListType } from '../adapter';
 
-import {
-  SpeechRecognitionCommon,
-} from './speech-recognition.common';
+import { SpeechRecognitionCommon } from './speech-recognition.common';
 
+// @dynamic
 @Injectable()
 /**
  *
@@ -36,20 +33,41 @@ import {
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
  */
 export class SpeechRecognitionService extends SpeechRecognitionCommon {
-
   private initHandlers() {
-    const _ = () => { };
-    if (!this.audiostartHandler) { this.audiostartHandler = _; }
-    if (!this.soundstartHandler) { this.soundstartHandler = _; }
-    if (!this.speechstartHandler) { this.speechstartHandler = _; }
-    if (!this.speechendHandler) { this.speechendHandler = _; }
-    if (!this.soundendHandler) { this.soundendHandler = _; }
-    if (!this.audioendHandler) { this.audioendHandler = _; }
-    if (!this.resultHandler) { this.resultHandler = _; }
-    if (!this.nomatchHandler) { this.nomatchHandler = _; }
-    if (!this.errorHandler) { this.errorHandler = _; }
-    if (!this.startHandler) { this.startHandler = _; }
-    if (!this.endHandler) { this.endHandler = _; }
+    const _ = () => {};
+    if (!this.audiostartHandler) {
+      this.audiostartHandler = _;
+    }
+    if (!this.soundstartHandler) {
+      this.soundstartHandler = _;
+    }
+    if (!this.speechstartHandler) {
+      this.speechstartHandler = _;
+    }
+    if (!this.speechendHandler) {
+      this.speechendHandler = _;
+    }
+    if (!this.soundendHandler) {
+      this.soundendHandler = _;
+    }
+    if (!this.audioendHandler) {
+      this.audioendHandler = _;
+    }
+    if (!this.resultHandler) {
+      this.resultHandler = _;
+    }
+    if (!this.nomatchHandler) {
+      this.nomatchHandler = _;
+    }
+    if (!this.errorHandler) {
+      this.errorHandler = _;
+    }
+    if (!this.startHandler) {
+      this.startHandler = _;
+    }
+    if (!this.endHandler) {
+      this.endHandler = _;
+    }
   }
 
   private initInternal() {
@@ -107,59 +125,58 @@ export class SpeechRecognitionService extends SpeechRecognitionCommon {
     };
   }
 
-
   constructor(
     private ref: ApplicationRef,
-
-    @Optional() @Inject(SpeechRecognitionGrammars)
+    @Optional()
+    @Inject(SpeechRecognitionGrammars)
     grammars: SpeechGrammarListType,
-
-    @Optional() @Inject(SpeechRecognitionLang)
+    @Optional()
+    @Inject(SpeechRecognitionLang)
     lang: string,
-
-    @Optional() @Inject(SpeechRecognitionContinuous)
+    @Optional()
+    @Inject(SpeechRecognitionContinuous)
     continuous: boolean,
-
-    @Optional() @Inject(SpeechRecognitionInterimResults)
+    @Optional()
+    @Inject(SpeechRecognitionInterimResults)
     interimResults: boolean,
-
-    @Optional() @Inject(SpeechRecognitionMaxAlternatives)
+    @Optional()
+    @Inject(SpeechRecognitionMaxAlternatives)
     maxAlternatives: number,
-
-    @Optional() @Inject(SpeechRecognitionServiceUri)
+    @Optional()
+    @Inject(SpeechRecognitionServiceUri)
     serviceURI: string,
-
-    @Optional() @Inject(SpeechRecognitionAudiostartHandler)
+    @Optional()
+    @Inject(SpeechRecognitionAudiostartHandler)
     private audiostartHandler: (ev: Event) => any,
-
-    @Optional() @Inject(SpeechRecognitionSoundstartHandler)
+    @Optional()
+    @Inject(SpeechRecognitionSoundstartHandler)
     private soundstartHandler: (ev: Event) => any,
-
-    @Optional() @Inject(SpeechRecognitionSpeechstartHandler)
+    @Optional()
+    @Inject(SpeechRecognitionSpeechstartHandler)
     private speechstartHandler: (ev: Event) => any,
-
-    @Optional() @Inject(SpeechRecognitionSpeechendHandler)
+    @Optional()
+    @Inject(SpeechRecognitionSpeechendHandler)
     private speechendHandler: (ev: Event) => any,
-
-    @Optional() @Inject(SpeechRecognitionSoundendHandler)
+    @Optional()
+    @Inject(SpeechRecognitionSoundendHandler)
     private soundendHandler: (ev: Event) => any,
-
-    @Optional() @Inject(SpeechRecognitionAudioendHandler)
+    @Optional()
+    @Inject(SpeechRecognitionAudioendHandler)
     private audioendHandler: (ev: Event) => any,
-
-    @Optional() @Inject(SpeechRecognitionResultHandler)
+    @Optional()
+    @Inject(SpeechRecognitionResultHandler)
     private resultHandler: (ev: SpeechRecognitionEvent) => any,
-
-    @Optional() @Inject(SpeechRecognitionNomatchHandler)
+    @Optional()
+    @Inject(SpeechRecognitionNomatchHandler)
     private nomatchHandler: (ev: SpeechRecognitionEvent) => any,
-
-    @Optional() @Inject(SpeechRecognitionErrorHandler)
+    @Optional()
+    @Inject(SpeechRecognitionErrorHandler)
     private errorHandler: (ev: SpeechRecognitionError) => any,
-
-    @Optional() @Inject(SpeechRecognitionStartHandler)
+    @Optional()
+    @Inject(SpeechRecognitionStartHandler)
     private startHandler: (ev: Event) => any,
-
-    @Optional() @Inject(SpeechRecognitionEndHandler)
+    @Optional()
+    @Inject(SpeechRecognitionEndHandler)
     private endHandler: (ev: Event) => any
   ) {
     super(grammars, lang, continuous, interimResults, maxAlternatives, serviceURI);
@@ -168,7 +185,6 @@ export class SpeechRecognitionService extends SpeechRecognitionCommon {
 
     this.initInternal();
   }
-
 
   // The onaudiostart property of the SpeechRecognition interface
   // represents an event handler that will run
@@ -349,6 +365,4 @@ export class SpeechRecognitionService extends SpeechRecognitionCommon {
     this.internal.abort();
     this.ref.tick();
   }
-
-
 }
